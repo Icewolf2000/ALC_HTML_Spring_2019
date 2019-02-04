@@ -12,6 +12,17 @@ function Game() {
     var pc = prompt("What is your name?");
     alert("Welcome to the land of " + pc);
     
+    var inventory = {
+        coins:0,
+        bread:0,
+        sword:0,
+    }
+    
+    var lacertillianSoldier = {
+        axe:1,
+        
+    }
+    
     Prison();
     
     function Prison() {
@@ -86,6 +97,68 @@ function Game() {
             Swamp();
         }
         
+        
+    }
+    
+    function Smithshop(){
+        alert("The smith is busy working. His apprentice stops shining the shields to assist you.");
+        
+            var smithshop = prompt("Buy somthing, will ya? \n -buy sword \n -buy shield \n -buy knife \n -buy armor");
+                if(smithshop == "buy sword" || smithshop == "sword" && inventory.coins >= 100){
+                    var swordPurchase = confirm("You want a sword?");
+                        if(swordPurchase){
+                            //Adds sword to inventory
+                            inventory.sword ++;
+                            //Shows sword(s) owned
+                            alert("You own " +inventory.sword+" swords.");
+                            //Takes money from inventory
+                            inventory.coins = inventory.coins - 100;
+                            // displays coins in inventory
+                            alert("You have "+inventory.coins+" coins remaining.");
+                            Smithshop();
+                        }
+                        else{
+                            alert("That's a shame.");
+                            Smithshop();
+                        }
+                else if(smithshop == "buy shield" || smithshop == "shield" && inventory.coins >= 75){
+                    var shieldPurchase = confirm("You want a shield?");
+                        if(shieldPurchase){
+                            //Adds shield to inventory
+                            inventory.shield ++;
+                            //Shows shield(s) owned
+                            alert("You own "+inventory.shield+" shields.");
+                            //Takes money from inventory
+                            inventory.coins = inventory.coins - 75;
+                            //displays coins in inventory
+                            alert("You have "+inventory.coins+" coins remaining.");
+                            Smithshop();
+                        }
+                        else{
+                            alert("That's a shame.");
+                            Smithshop();
+                        }
+                }
+                else if (smithsop == "buy knife" || smithshop == "knife" && inventory.coins >= 50){
+                    var knifePurchase = confirm("You want a knife?");
+                        if(knifePurchase){
+                            //Adds knife to inventory
+                            inventory.knife ++;
+                            //Shows knife(s) owned
+                            alert("You own "+inventory.knife+" knifes.");
+                            //Takes money from inventroy
+                            inventory.coins = inventory.coins - 50;
+                            //displays coins in inventroy
+                            alert("You have "+inventory.coins+" coins remaining.");
+                            Smithshop();
+                        }
+                        else{
+                            alert("That's a shame.");
+                            Smithshop();
+                        }
+                }
+                
+            }
         
     }
     
