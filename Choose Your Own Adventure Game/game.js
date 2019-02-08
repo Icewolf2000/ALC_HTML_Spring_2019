@@ -5,22 +5,52 @@ Multiline comment
 
 */
 
+//Start of game
+
 Game();
 
 function Game() {
     document.write("Symphony of Monsters");
     var pc = prompt("What is your name?");
-    alert("Welcome to the land of " + pc);
+    alert("Welcome to the land of , "+pc+".");
     
-    var inventory = {
-        coins:0,
-        bread:0,
-        sword:0,
+    var player = {
+        name:"Rainger",
+        race:"Human",
+        age:20,
+        health:100,
+        inventory:{
+            coins:0,
+            food:{
+                water:0,
+                bread:0,
+                fish:0,
+                apple:0,
+                mutton:0,
+            },
+            
+            weapons:{
+                sword:0,
+                dagger:0,
+                axe:0, 
+            },
+              armor:{
+                shield:0,
+                armorClass:0,
+            }, 
+            keys:{
+                prison:0,
+                castle:0,
+            },
+      
+        }
     }
+   
     
-    var lacertillianSoldier = {
-        axe:1,
+    function GetRandInt(max){
+        var randInt = Math.floor(Math.random()* Math.floor(max));
         
+        return randInt;
     }
     
     Prison();
@@ -46,7 +76,7 @@ function Game() {
                 }
             }
             
-            //waking stranger
+            //Waking stranger
             
             else if (prisonLook == "wake stranger"){
                 var wakeStranger = alert("The stranger grunts and rolls over. He doesn't appear to be waking up anytime soon.");
@@ -67,11 +97,14 @@ function Game() {
                 
                 if (lookInHole) {
                     alert("You reach in and grab the object. Pulling it out reveals it is a dagger. Now you have a weapon.");
+                    //Adds dagger to inventory
+                    inventory.dagger ++;
+                    alert("You have "+inventory.dagger+" daggers.");
                     Prison();
                 }
                 
                 else {
-                    alert("You decide to leave it there.");
+                    alert("You decide to leave it where it is.");
                     Prison();
                 }
                 
@@ -113,6 +146,7 @@ function Game() {
         
         else {
             alert("I don't understand "+prison);
+            Prison();
         }
     }
     
@@ -217,18 +251,15 @@ function Game() {
                             //displays coins in inventory
                             alert("You have "+inventory.coins+" coins remaining.");
                             Smithshop();
-                }
-                else{
-                    alert("That's a shame.");
-                    Smithshop();
-                }
-        }
+                        }
+                        else{
+                            alert("That's a shame.");
+                            Smithshop();
+                        }
+                    } 
     
-            }
-        
-    }
-    
-    Castle();
+                }
+    /*Castle();
     
     function Castle(){
         var insideCastle(" - upstairs - downstairs - courtyard - balcony - look").toLowerCase();
@@ -255,8 +286,14 @@ function Game() {
                 alert("I don't know what "+insideCastle" is!");
                 Castle();
                 break;
-                
+            }
         }
+    */
+    
+        
     }
     
-}
+  
+   
+
+    
