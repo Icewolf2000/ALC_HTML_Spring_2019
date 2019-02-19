@@ -14,6 +14,10 @@ function Game() {
     var pc = prompt("What is your name?");
     alert("Welcome to the land of , "+pc+".");
     
+    var inv = function(){
+        alert("Coins: "+player.inventory.coins+"\n Water: "+player.inventory.water+"\n Bread: "+player.inventory.bread+"\n Fish: "+player.inventory.water+"\n Apples: "+player.inventory.apple+"\n Mutton: "+player.inventory.mutton+"\n Swords: "+player.inventory.sword+"\n Daggers: "+player.inventory.dagger+"\n Axes "+player.inventory.axe+"\n Shield: "+player.inventory.shield+"\n Armor Class: "+player.inventory.armorClass+"\n Prison Keys: "+player.inventory.prison+"\n Castle Keys: "+player.inventory.castle);
+    }
+    
     var player = {
         name:"Rainger",
         race:"Human",
@@ -58,7 +62,7 @@ function Game() {
     function Prison() {
         var prison = prompt("You wake up, head pounding. After pacing for a bit, your vision clears. It appears you are a prison, though the reason why is unclear to you. What will you do? \n -look around \n -go back to sleep \n -taunt the guard").toLowerCase();
        
-        //Look around Prompt
+        //Look around
         
         if (prison == "look around" || prison == "look") {
             var prisonLook = prompt("The cell is small, dirty, and damp. A rat scurries into a small hole in the corner. There is a barred window to the back, the bars so close together that there might have not been a window at all. There is an bed occupied by a snoring stranger to your right. The locked door to the front is being guarded by an armored lacertillian soldier. The lizard-like creature is at least a foot taller than you, and is sharpening a large axe. The empty bed you woke up in is to your left. The corner of the room has a lumpy, moldy rug. \n -wake stranger \n -look out window \n -look under rug \n -look in the hole in the corner");
@@ -99,7 +103,8 @@ function Game() {
                     alert("You reach in and grab the object. Pulling it out reveals it is a dagger. Now you have a weapon.");
                     //Adds dagger to inventory
                     inventory.dagger ++;
-                    alert("You have "+inventory.dagger+" daggers.");
+                    //Shows dagger in inventory
+                    alert("You have " +inventory.dagger+" dagger(s).");
                     Prison();
                 }
                 
@@ -128,11 +133,11 @@ function Game() {
             
         }
         
-        //taunting guard
+        //Taunting guard
         
-        else if (prison == "taunt the guard" || prison == "taunt guard"){
+        else if (prison == "taunt the guard" || prison == "taunt guard" && inventory.dagger > 0){
             alert("You say something snarky to the guard. His tail twitches and he tells you to be quiet. It is clear from his tone that he is annoyed.");
-            var botherGuard = confirm("Do you want to bother him more?")
+            var botherGuard = confirm("Do you want to bother him more?");
             
             if (botherGuard) {
                 alert("The guard opens the door and slashes at you with his axe, killing you. I suppose you should have checked if he was armed first... Your journey is over before it had even begun.");
