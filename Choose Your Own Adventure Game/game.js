@@ -14,9 +14,10 @@ function Game() {
     var pc = prompt("What is your name?");
     alert("Welcome to the land of , "+pc+".");
     
-    var inv = function(){
+    var inventory = function(){
         alert("Coins: "+player.inventory.coins+"\n Water: "+player.inventory.water+"\n Bread: "+player.inventory.bread+"\n Fish: "+player.inventory.water+"\n Apples: "+player.inventory.apple+"\n Mutton: "+player.inventory.mutton+"\n Swords: "+player.inventory.sword+"\n Daggers: "+player.inventory.dagger+"\n Axes "+player.inventory.axe+"\n Shield: "+player.inventory.shield+"\n Armor Class: "+player.inventory.armorClass+"\n Prison Keys: "+player.inventory.prison+"\n Castle Keys: "+player.inventory.castle);
     }
+    
     
     var player = {
         name:"Rainger",
@@ -24,7 +25,7 @@ function Game() {
         age:20,
         health:100,
         inventory:{
-            coins:0,
+            coins:200,
             food:{
                 water:0,
                 bread:0,
@@ -55,12 +56,15 @@ function Game() {
         var randInt = Math.floor(Math.random()* Math.floor(max));
         
         return randInt;
+        
+  
     }
     
-    Prison();
+  Prison();
     
     function Prison() {
         var prison = prompt("You wake up, head pounding. After pacing for a bit, your vision clears. It appears you are a prison, though the reason why is unclear to you. What will you do? \n -look around \n -go back to sleep \n -taunt the guard").toLowerCase();
+       
        
         //Look around
         
@@ -73,7 +77,8 @@ function Game() {
                 var windowLook = prompt("You can barely see out the window, but it looks like the cell is up very high. It is impossible to tell where you are in the world. \n -continue to look out window \n -leave window");
                 
                 if (windowLook == "continue to look out window" || windowLook == "continue"){
-                    alert("You continue to look out the window. What is out there? How could you escape? Even if you did manage to, you wouldn't know were to go. Maybe it is better to just stay here, where you are safe. Yes, staying here is what you will do.")
+                    alert("You continue to look out the window. What is out there? How could you escape? Even if you did manage to, you wouldn't know were to go. Maybe it is better to just stay here, where you are safe. Yes, staying here is what you will do.");
+                    EndGame();
                 }
                 else {
                     Prison();
@@ -137,10 +142,32 @@ function Game() {
         
         else if (prison == "taunt the guard" || prison == "taunt guard" && inventory.dagger > 0){
             alert("You say something snarky to the guard. His tail twitches and he tells you to be quiet. It is clear from his tone that he is annoyed.");
-            var botherGuard = confirm("Do you want to bother him more?");
+            var botherGuard = prompt("Do you want to bother him more? \n -yes \n -no");
             
-            if (botherGuard) {
+            if (botherGuard == "yes" && inventory.dagger < 1) {
                 alert("The guard opens the door and slashes at you with his axe, killing you. I suppose you should have checked if he was armed first... Your journey is over before it had even begun.");
+                EndGame();
+            }
+            
+            else if (botherGuard == "yes" && inventory.dagger >= 1){
+                var deadGuard = prompt("The guard opens the door. You quickly slash at him using the dagger you found, and he falls dead on the floor. \n -take axe \n -take keys \n -leave prison");
+                
+                if (deadGuard == "take axe" || deadGuard == "axe"){
+                    
+                }
+                
+                else if (deadGuard == "take keys" || deadGuard == "keys"){
+                    
+                }
+                else if (deadGuard == "leave prison" || deadGuard == "leave" && inventory.prison >= 1){
+                    
+                }
+                
+                else{
+                    alert("I don't understand "+deadGuard);
+                }
+                
+                
             }
             else {
                 Prison();
@@ -155,37 +182,39 @@ function Game() {
         }
     }
     
+    
     Swamp();
     
     function Swamp() {
-        var swampEnv = prompt("Muddy, misquito infested swamp. \n - follow path \n - swim").toLowerCase();
+        var swampEnv = prompt("Muddy, misquito infested swamp. \n -follow path \n -swim");
         
         if (swampEnv == "follow" || swampEnv == "follow path") {
             var swampPath = propmt("You enter on the swamp path, heading north. Probably the safer choice. As you walk, you see a hut in the distance. As you approach it, you see light in the windows. \n -enter hut \n -burn down hut");
-            if(swampPath == "enter" || swampPath == "enter hut") {
-                
-            }
-            else if (swampPath == "burn down hut" || swampPath == "burn hut down" || swampPath == "burn hut") {
-                alert("You somehow burn down the house, feeling much to happy about it to be a normal human. I sure hope there wasn't anyone inside. ...Maybe you were in prison for a reason.");
-            }
+                if(swampPath == "enter" || swampPath == "enter hut"){
+                    Smithshop();
+                }
+                else if (swampPath == "burn down hut" || swampPath == "burn hut down" || swampPath == "burn hut"){
+                    alert("You somehow burn down the house, feeling much to happy about it to be a normal human. I sure hope there wasn't anyone inside. ...Maybe you were in prison for a reason.");
+                }
         }
-        else if (swampEnv == "Swim") {
-            alert("You barely wade in the muddy water before being eaten by a voltfin. Honestly, what were you expecting?");
+            else if (swampEnv == "swim"){
+                alert("You barely wade in the muddy water before being eaten by a voltfin. Honestly, what were you expecting?");
         }
-        else{
-            alert("I don't understand "+swampEnv);
-            Swamp();
+            else{
+                alert("I don't understand "+swampEnv+".");
+                Swamp();
         }
         
         
     }
+    
     
     Smithshop();
     
     function Smithshop(){
         alert("The smith is busy working. His apprentice stops shining the shields to assist you.");
         
-            var smithshop = prompt("Buy somthing, will ya? \n -buy sword \n -buy shield \n -buy dagger \n -buy armor").toLowerCase();
+            var smithshop = prompt("Buy somthing, will ya? \n -buy sword \n -buy shield \n -buy dagger \n -buy armor \n -leave").toLowerCase();
                 if(smithshop == "buy sword" || smithshop == "sword" && inventory.coins >= 100){
                     var swordPurchase = confirm("You want a sword?");
                         if(swordPurchase){
@@ -206,7 +235,7 @@ function Game() {
                     
                 }
         
-                   else if(smithshop == "buy shield" || smithshop == "shield" && inventory.coins >= 75){
+                else if(smithshop == "buy shield" || smithshop == "shield" && inventory.coins >= 75){
                     var shieldPurchase = confirm("You want a shield?");
                         if(shieldPurchase){
                             //Adds shield to inventory
@@ -262,6 +291,14 @@ function Game() {
                             Smithshop();
                         }
                     } 
+        
+                else if(smithshop == "leave"){
+                    alert("You decide to leave.");
+                    Swamp();
+                }
+                else{
+                    alert("I don't understand "+smithshop+".");
+                }
     
                 }
     /*Castle();
