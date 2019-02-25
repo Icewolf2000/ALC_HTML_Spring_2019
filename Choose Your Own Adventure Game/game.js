@@ -5,20 +5,7 @@ Multiline comment
 
 */
 
-//Start of game
 
-Game();
-
-function Game() {
-    document.write("Symphony of Monsters");
-    var pc = prompt("What is your name?");
-    alert("Welcome to the land of , "+pc+".");
-    
-    var inventory = function(){
-        alert("Coins: "+player.inventory.coins+"\n Water: "+player.inventory.water+"\n Bread: "+player.inventory.bread+"\n Fish: "+player.inventory.water+"\n Apples: "+player.inventory.apple+"\n Mutton: "+player.inventory.mutton+"\n Swords: "+player.inventory.sword+"\n Daggers: "+player.inventory.dagger+"\n Axes "+player.inventory.axe+"\n Shield: "+player.inventory.shield+"\n Armor Class: "+player.inventory.armorClass+"\n Prison Keys: "+player.inventory.prison+"\n Castle Keys: "+player.inventory.castle);
-    }
-    
-    
     var player = {
         name:"Rainger",
         race:"Human",
@@ -37,7 +24,8 @@ function Game() {
             weapons:{
                 sword:0,
                 dagger:0,
-                axe:0, 
+                axe:0,
+                arrow:0,
             },
               armor:{
                 shield:0,
@@ -50,15 +38,33 @@ function Game() {
       
         }
     }
-   
     
+        var inventory = function(){
+        alert("Coins: "+player.inventory.coins+"\n Water: "+player.inventory.water+"\n Bread: "+player.inventory.bread+"\n Fish: "+player.inventory.water+"\n Apples: "+player.inventory.apple+"\n Mutton: "+player.inventory.mutton+"\n Swords: "+player.inventory.sword+"\n Daggers: "+player.inventory.dagger+"\n Axes "+player.inventory.axe+"\n Shield: "+player.inventory.shield+"\n Armor Class: "+player.inventory.armorClass+"\n Prison Keys: "+player.inventory.prison+"\n Castle Keys: "+player.inventory.castle);
+    }
+        
     function GetRandInt(max){
         var randInt = Math.floor(Math.random()* Math.floor(max));
         
         return randInt;
         
   
+    }   
+        
+        
+//Start game
+Game();
+
+function Game() {
+    document.write("Symphony of Monsters");
+    var pc = prompt("What is your name?");
+    
+    while(!confirm("Are you sure you want "+pc+" as a name?")){
+       pc = prompt("What name do you want?");
     }
+   
+    alert("Welcome to the land of , "+pc+".");
+    
     
   Prison();
     
@@ -140,7 +146,7 @@ function Game() {
         
         //Taunting guard
         
-        else if (prison == "taunt the guard" || prison == "taunt guard" && inventory.dagger > 0){
+        if (prison == "taunt the guard" || prison == "taunt guard" && inventory.dagger > 0){
             alert("You say something snarky to the guard. His tail twitches and he tells you to be quiet. It is clear from his tone that he is annoyed.");
             var botherGuard = prompt("Do you want to bother him more? \n -yes \n -no");
             
@@ -153,6 +159,10 @@ function Game() {
                 var deadGuard = prompt("The guard opens the door. You quickly slash at him using the dagger you found, and he falls dead on the floor. \n -take axe \n -take keys \n -leave prison");
                 
                 if (deadGuard == "take axe" || deadGuard == "axe"){
+                    alert("You take the guard's axe.");
+                    inventory.axe ++;
+                    alert("You own "+inventory.axe+" axes.");
+                    deadGuard;
                     
                 }
                 
@@ -160,24 +170,31 @@ function Game() {
                     
                 }
                 else if (deadGuard == "leave prison" || deadGuard == "leave" && inventory.prison >= 1){
+                    alert("You go down the stairs, opening the locked door with the prison key.");
+                    Castle();
                     
                 }
                 
+                else if (deadGuard == "leave prison" || deadGuard == "leave" && inventory.prison <= 1){
+                    alert("You go down the stairs, but a locked door bars your way.");
+                    deadGuard();
+                }
+                
                 else{
-                    alert("I don't understand "+deadGuard);
+                    alert("I don't understand "+deadGuard+".");
                 }
                 
                 
             }
             else {
-                Prison();
+                deadGuard;
             }
             
         }
         
         
         else {
-            alert("I don't understand "+prison);
+            alert("I don't understand "+prison+".");
             Prison();
         }
     }
@@ -301,36 +318,83 @@ function Game() {
                 }
     
                 }
-    /*Castle();
+    
+    function Shop(){
+        var arrowShop = 100;
+        var arrowPrice = 2;
+        
+        var purchase = prompt("Welcome, what would you like to buy? \n - arrows"+arrowShop).toLowerCase();
+        
+        if(purchase == "arrows" || purchase == "arrow"){
+            var arrowCon = prompt("How many arrows do you wish to buy?");
+            
+            while(!confirm("Are you sure you want to purchase "+arrowCon+" arrows for "+arrowPrice+" per arrow?")){
+                arrowCon = prompt("How many arrows will you purchase?");
+            }
+            
+            for(i = 1; i <= arrowCon; i++){
+                //Adds arrow to inventory
+                inventory.arrow ++;
+                console.log("You have "+inventory.arrow+" arrows.");
+                //Removes coins from inventory
+                inventory.coins --;
+                console.log("You have "+inventory.coins+" coins left.");
+                //Removes arrows from shop total
+                arrowShop --;
+            }
+            alert("You have purchased "+arrowCon+" arrows. Thank you.");
+            Shop();
+        }
+        else if(purchase == "exit" || purchase == "leave"){
+            Castle();
+        }
+            
+    }
+    
+    
+    Castle();
     
     function Castle(){
-        var insideCastle(" - upstairs - downstairs - courtyard - balcony - look").toLowerCase();
+        var insideCastle = prompt("There seems to be no one else here. - upstairs - downstairs - courtyard - balcony - look").toLowerCase();
         
             switch(insideCastle){
                 case "upstairs":
-                    var upstairs = prompt("You walk a long flight of stairs to the top floor of the castle.");
-                
+                    var upstairs = alert("The only thing up there is the prison. You go back downstairs.");
                     Castle();
                 break;
                 case "downstairs":
                     alert("You go downstairs.");
+                    Shop();
                 
                 break;
                 case "courtyard":
-                    alert("You go into the courtyard.");
+                    var courtyard = prompt("You go into the courtyard. At least, that's what it used to be. - north - back");
+                    switch(courtyard){
+                        case "north":
+                            var courtyardNorth = alert("You exit through the crumbled wall of the courtyard.");
+                            Swamp();
+                    break;
+                        case "back":
+                            alert("You go back to the castle.");
+                            Castle();
+                    break;
+                        default:
+                            alert("I don't understand "+courtyard+".");
+                            courtyard;
+                    }
                     Castle();
                 break;
                 case "balcony":
-                    alert("You go to the balcony.");
+                    alert("You go to the balcony. It overlooks the rundown courtyard. The elements have broken down the north wall. There is nothing useful here.");
                     Castle();
                 break;
                 default:
-                alert("I don't know what "+insideCastle" is!");
-                Castle();
+                    alert("I don't understand "+insideCastle+".");
+                    Castle();
                 break;
             }
         }
-    */
+    
     
         
     }
