@@ -65,7 +65,11 @@ function Game() {
    
     alert("Welcome to the land of , "+pc+".");
     
+    var characterRace = ["human", "half elf", "half druid", "half dwarf"];
     
+    alert("You are a "+characterRace[Math.floor(Math.random()* 4)]+".");
+    
+
   Prison();
     
     function Prison() {
@@ -101,8 +105,17 @@ function Game() {
             //Looking under the rug
             
             else if (prisonLook == "look under rug" || prisonLook == "look under the rug"){
-                var lookUnderRug = alert("You gather up your courage and move the rug. Some bugs scurry out from underneath, but there is nothing else.");
-                Prison();
+                var lookUnderRug = prompt("You gather up your courage and move the rug. Some bugs scurry out from underneath. There seems to be a trapdoor. \n -open trapdoor \n -leave it");
+                
+                if (lookUnderRug == "open trapdoor" || lookUnderRug == "open door" || lookUnderRug == "trapdoor"){
+                    var trapDoor = alert("You open the trapdoor quietly and slip inside. You go down a flight of stairs in the dark.");
+                    Castle();
+                }
+                
+                else if (lookUnderRug == "leave it" || lookUnderRug == "leave"){
+                    alert("You decide to not risk going inside. You cover the trapdoor with the rug.");
+                    Prison();
+                }
             }
             
             //Looking in the hole in the corner
@@ -115,7 +128,7 @@ function Game() {
                     //Adds dagger to inventory
                     inventory.dagger ++;
                     //Shows dagger in inventory
-                    alert("You have " +inventory.dagger+" dagger(s).");
+                    alert("You have "+inventory.dagger+" dagger(s).");
                     Prison();
                 }
                 
@@ -139,79 +152,110 @@ function Game() {
                 Prison();
             }
             else {
-                alert("Game Over");
+                EndGame();
             }
             
         }
         
         //Taunting guard
         
-        if (prison == "taunt the guard" || prison == "taunt guard" && inventory.dagger > 0){
+        else if (prison == "taunt the guard" || prison == "taunt guard" && inventory.dagger >= 0){
             alert("You say something snarky to the guard. His tail twitches and he tells you to be quiet. It is clear from his tone that he is annoyed.");
             var botherGuard = prompt("Do you want to bother him more? \n -yes \n -no");
             
-            if (botherGuard == "yes" && inventory.dagger < 1) {
+            if (botherGuard == "yes") {
                 alert("The guard opens the door and slashes at you with his axe, killing you. I suppose you should have checked if he was armed first... Your journey is over before it had even begun.");
                 EndGame();
             }
-            
-            else if (botherGuard == "yes" && inventory.dagger >= 1){
-                var deadGuard = prompt("The guard opens the door. You quickly slash at him using the dagger you found, and he falls dead on the floor. \n -take axe \n -take keys \n -leave prison");
-                
-                if (deadGuard == "take axe" || deadGuard == "axe"){
-                    alert("You take the guard's axe.");
-                    inventory.axe ++;
-                    alert("You own "+inventory.axe+" axes.");
-                    deadGuard;
-                    
-                }
-                
-                else if (deadGuard == "take keys" || deadGuard == "keys"){
-                    
-                }
-                else if (deadGuard == "leave prison" || deadGuard == "leave" && inventory.prison >= 1){
-                    alert("You go down the stairs, opening the locked door with the prison key.");
-                    Castle();
-                    
-                }
-                
-                else if (deadGuard == "leave prison" || deadGuard == "leave" && inventory.prison <= 1){
-                    alert("You go down the stairs, but a locked door bars your way.");
-                    deadGuard();
-                }
-                
-                else{
-                    alert("I don't understand "+deadGuard+".");
-                }
-                
-                
+            else if (botherGuard == "no"){
+                Prison();
             }
             else {
-                deadGuard;
+                alert("I don't understand.");
             }
             
+            }
+            else {
+                alert("I don't understand "+botherGuard+".");
+                botherGuard();
+            }
+            
+        
         }
         
         
-        else {
-            alert("I don't understand "+prison+".");
-            Prison();
-        }
     }
     
+    
+     
+    Castle();
+    
+    function Castle(){
+        var insideCastle = prompt("There seems to be no one else here. - upstairs - downstairs - courtyard - balcony - look").toLowerCase();
+        
+            switch(insideCastle){
+                case "upstairs":
+                    var upstairs = alert("The only thing up there is the prison. You go back downstairs.");
+                    Castle();
+                break;
+                case "downstairs":
+                    alert("You go downstairs.");
+                    Shop();
+                
+                break;
+                case "courtyard":
+                    var courtyard = prompt("You go into the courtyard. The remains of one, actually. No royalty has lived here for a long time. - north - back");
+                    switch(courtyard){
+                        case "north":
+                            var courtyardNorth = alert("You exit through the crumbled wall of the courtyard.");
+                            Swamp();
+                    break;
+                        case "back":
+                            alert("You go back to the castle.");
+                            Castle();
+                    break;
+                        default:
+                            alert("I don't understand "+courtyard+".");
+                            courtyard;
+                    }
+                    Castle();
+                break;
+                case "balcony":
+                    alert("You go to the balcony. It overlooks the rundown courtyard. The elements have broken down the north wall. There is nothing useful here.");
+                    Castle();
+                break;
+                default:
+                    alert("I don't understand "+insideCastle+".");
+                    Castle();
+                break;
+            }
+        }
     
     Swamp();
     
     function Swamp() {
         var swampEnv = prompt("Muddy, misquito infested swamp. \n -follow path \n -swim");
         
-        if (swampEnv == "follow" || swampEnv == "follow path") {
-            var swampPath = propmt("You enter on the swamp path, heading north. Probably the safer choice. As you walk, you see a hut in the distance. As you approach it, you see light in the windows. \n -enter hut \n -burn down hut");
+        if (swampEnv == "follow" || swampEnv == "follow path"){
+            var swampPath = prompt("You enter on the swamp path, heading north. Probably the safer choice. As you walk, you see a hut in the distance. As you approach it, you see light in the windows. \n -enter hut \n -burn down hut \n -continue north");
                 if(swampPath == "enter" || swampPath == "enter hut"){
                     Smithshop();
                 }
                 else if (swampPath == "burn down hut" || swampPath == "burn hut down" || swampPath == "burn hut"){
                     alert("You somehow burn down the house, feeling much to happy about it to be a normal human. I sure hope there wasn't anyone inside. ...Maybe you were in prison for a reason.");
+                    swampPath2();
+                }
+                else if (swampPath == "continue" || swampPath == "continue north"){
+                    field = prompt("You continue to walk along the path until well after dark. The environment slowly changes from a swamp to an open field. You can see a village about a mile away, but to your left there is a fruit tree. \n -sleep under the tree \n -continue to village");
+                    
+                    if (field == "sleep" || field == "sleep under tree" || field =="sleep under the tree"){
+                        alert("The tree is not a tree, but a monster in disguise! You were eaten.");
+                        EndGame();
+                    }
+                    else if (field == "continue" || field == "continue to village"){
+                        alert("You continue on to the village.");
+                        WinGame();
+                    }
                 }
         }
             else if (swampEnv == "swim"){
@@ -221,6 +265,9 @@ function Game() {
                 alert("I don't understand "+swampEnv+".");
                 Swamp();
         }
+        
+        var swampPath2 = alert("There is nothing here but the remains of a hut.");
+        EndGame();
         
         
     }
@@ -322,8 +369,10 @@ function Game() {
     function Shop(){
         var arrowShop = 100;
         var arrowPrice = 2;
+        var foodShop = 20
+        var foodPrice = 3
         
-        var purchase = prompt("Welcome, what would you like to buy? \n - arrows"+arrowShop).toLowerCase();
+        var purchase = prompt("Welcome, what would you like to buy? \n - arrows"+arrowShop+" \n - food"+foodShop).toLowerCase();
         
         if(purchase == "arrows" || purchase == "arrow"){
             var arrowCon = prompt("How many arrows do you wish to buy?");
@@ -345,6 +394,28 @@ function Game() {
             alert("You have purchased "+arrowCon+" arrows. Thank you.");
             Shop();
         }
+        
+        else if(purchase == "food"){
+            var foodCon = prompt("How many loafs of bread to you wish to purchase?");
+            
+            while(!confirm("Are you sure you want to purchase "+foodCon+" loafs of bread for "+foodPrice+" per loaf?")){
+                foodCon = prompt("How many loafs of bread to you wish to buy?");
+            }
+            
+        for(i = 1; i <= foodCon; i++){
+            //Adds bread to inventory
+            inventory.bread ++;
+            console.log("You have "+inventory.bread+" loafs of bread.");
+            //Removes coins from inventory
+            inventory.coins --;
+            console.log("You have "+inventory.coins+" coins left.");
+            //Removes arrows from shop total
+            arrowShop --;
+        }
+            alert("You have purchased "+foodCon+" loafs of bread. Thank you.");
+            Shop();
+        }
+        
         else if(purchase == "exit" || purchase == "leave"){
             Castle();
         }
@@ -352,52 +423,12 @@ function Game() {
     }
     
     
-    Castle();
-    
-    function Castle(){
-        var insideCastle = prompt("There seems to be no one else here. - upstairs - downstairs - courtyard - balcony - look").toLowerCase();
+    EndGame();
+        endGame = alert("You lose.");
         
-            switch(insideCastle){
-                case "upstairs":
-                    var upstairs = alert("The only thing up there is the prison. You go back downstairs.");
-                    Castle();
-                break;
-                case "downstairs":
-                    alert("You go downstairs.");
-                    Shop();
-                
-                break;
-                case "courtyard":
-                    var courtyard = prompt("You go into the courtyard. At least, that's what it used to be. - north - back");
-                    switch(courtyard){
-                        case "north":
-                            var courtyardNorth = alert("You exit through the crumbled wall of the courtyard.");
-                            Swamp();
-                    break;
-                        case "back":
-                            alert("You go back to the castle.");
-                            Castle();
-                    break;
-                        default:
-                            alert("I don't understand "+courtyard+".");
-                            courtyard;
-                    }
-                    Castle();
-                break;
-                case "balcony":
-                    alert("You go to the balcony. It overlooks the rundown courtyard. The elements have broken down the north wall. There is nothing useful here.");
-                    Castle();
-                break;
-                default:
-                    alert("I don't understand "+insideCastle+".");
-                    Castle();
-                break;
-            }
-        }
-    
-    
-        
-    }
+    WinGame();
+        winGame = alert("The people of the village welcome you. You join a mercenary guild shortly after.");
+
     
   
    
