@@ -32,12 +32,32 @@
             }
             div#circle{
                 background-color:bisque;
-                width:100px;
-                height:100px;
+                width:120px;
+                height:120px;
                 border-radius:100%;
                 position:absolute;
                 left:160px;
                 top:250px;
+            }
+            div#purple-triangle{
+                width:0;
+                height:0;
+                border-left: 80px solid transparent;
+                border-right: 80px solid transparent;
+                border-bottom: 80px solid blueviolet;
+                position:absolute;
+                left:275px;
+                top:380px;
+            }
+            div#blue-triangle{
+                width:0;
+                height:0;
+                border-bottom: 80px solid transparent;
+                border-right: 80px solid transparent;
+                border-top:90px solid blue;
+                position:absolute;
+                left:470px;
+                top:500px;
             }
         </style>
     </head>
@@ -46,5 +66,7 @@
         <h3>Vol.1</h3>
         <div id="box"></div>
         <div id="circle"></div>
+        <div id="purple-triangle"></div>
+        <div id="blue-triangle"></div>
     </body>
 </html>
