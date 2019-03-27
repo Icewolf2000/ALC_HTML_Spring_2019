@@ -1,0 +1,45 @@
+<!DOCTYPE.html>
+<html>
+
+<body>
+<canvas id="canvas" width="500" height="500" style="border:2px solid #00fe90;">
+</canvas>
+<script>
+    //Set up canvas
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    //Draw rectangle
+    ctx.fillStyle = "#00fe90";
+    ctx.fillRect(0, 2, 245, 245);
+    ctx.fillStyle = "#00fe90";
+    ctx.fillRect(255, 0, 245, 140);
+    ctx.fillStyle = "#00fe90";
+    ctx.fillRect(365, 100, 140, 140);
+    ctx.fillStyle = "#00fe90";
+    ctx.fillRect(255, 255, 245, 245);
+    ctx.fillStyle = "#00fe90";
+    ctx.fillRect(0, 255, 245, 245);
+    //Draws line
+    ctx.moveTo(0, 0);
+    ctx.lineTo(245, 245);
+    ctx.stroke();
+    //Draw circle
+    ctx.beginPath;
+    ctx.arc(45, 200, 40, 0, 2 * Math.PI);
+    ctx.stroke();
+    //Creates Linear Gradient
+    var c = document.getElementById("canvas");
+    var ctx = c.getContext("2d");
+    //Create gradient
+    var grd = ctx.createLinearGradient(100, 100, 200, 10);
+    grd.addColorStop(0, "#00fe90");
+    grd.addColorStop(1, "white");
+    //Fill with gradient
+    ctx.fillStyle = grd;
+    ctx.fillRect(255, 145, 100, 100);
+    //Create Radial Gradiant
+</script>
+
+</body>
+
+</html>
