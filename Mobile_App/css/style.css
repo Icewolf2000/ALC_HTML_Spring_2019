@@ -1,1 +1,45 @@
-/* Stylesheet for Mobile App */
+/* Reset */
+html,body,div,p,ul,ol,li,h1,h2,h3,h4,h5,h6
+{
+    margin:0;
+    padding:0;
+    
+}
+
+body{
+    background-color: azure;
+}
+
+
+header{
+    width: 50%;
+    padding: 20px;
+    background-color: honeydew;
+}
+header h1{
+    color:darkseagreen;
+    font-family: "Tahoma",sans-serif;
+    font-size: 3em;
+}
+
+div#container{
+    width: 314px;
+    height:100px;
+    background-color: cornsilk;
+    color: chocolate;
+}
+
+div#content{
+    width: 57.3%;
+    background-color:aliceblue;
+}
+
+nav{
+    color:saddlebrown;
+}
+footer{
+    width: 100%;
+    height: 15px;
+    background-color: lavender;
+    
+}
