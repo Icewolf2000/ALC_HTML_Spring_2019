@@ -1,4 +1,9 @@
 /* Reset */
+/* Google Fonts
+font-family: 'Caveat', cursive;
+font-family: 'Special Elite', cursive;
+*/
+
 html,body,div,p,ul,ol,li,h1,h2,h3,h4,h5,h6
 {
     margin:0;
@@ -12,34 +17,63 @@ body{
 
 
 header{
-    width: 50%;
-    padding: 20px;
+    width: 54%;
+    padding: 3px;
     background-color: honeydew;
 }
+
 header h1{
     color:darkseagreen;
-    font-family: "Tahoma",sans-serif;
+    font-family: "Caveat", cursive;;
     font-size: 3em;
 }
 
 div#container{
-    width: 314px;
+    width: 55%;
     height:100px;
     background-color: cornsilk;
     color: chocolate;
+    font-family: 'Special Elite', cursive;
 }
 
 div#content{
-    width: 57.3%;
+    width: 55%;
     background-color:aliceblue;
+    font-family: 'Special Elite', cursive;
 }
 
 nav{
     color:rebeccapurple;
 }
+
+nav ul{
+    list-style: none;
+
+}
+
+nav ul li{
+    float: left;
+    padding: 5px 15px;
+    border: 2px inset #e1f1ff;
+}
+
+nav ul li a{
+    color: rebeccapurple;
+    font-family: 'Special Elite', cursive;
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    background-color:#ceb3f2;
+    color:ghostwhite;
+}
+
 footer{
     width: 100%;
     height: 15px;
     background-color: lavender;
-    
+}
+
+div.keepOpen {
+    clear: both;
 }
