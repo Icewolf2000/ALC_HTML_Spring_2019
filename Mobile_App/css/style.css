@@ -17,27 +17,32 @@ body{
 
 
 header{
-    width: 54%;
-    padding: 3px;
+    width: 100%;
+    padding: 1px;
     background-color: honeydew;
 }
 
 header h1{
     color:darkseagreen;
-    font-family: "Caveat", cursive;;
+    font-family: "Caveat", cursive;
     font-size: 3em;
+}
+p#subtitle{
+    color: darkseagreen;
+    font-family: "Caveat" , cursive;
+    background-color: honeydew;
+    width: 100%;
 }
 
 div#container{
-    width: 55%;
-    height:100px;
+    width: 100%;
     background-color: cornsilk;
     color: chocolate;
     font-family: 'Special Elite', cursive;
 }
 
 div#content{
-    width: 55%;
+    width: 100%;
     background-color:aliceblue;
     font-family: 'Special Elite', cursive;
 }
@@ -51,29 +56,44 @@ nav ul{
 
 }
 
-nav ul li{
-    float: left;
-    padding: 5px 15px;
-    border: 2px inset #e1f1ff;
-}
-
 nav ul li a{
     color: rebeccapurple;
     font-family: 'Special Elite', cursive;
     text-decoration: none;
+    float: left;
+    display: block;
+    padding: 5px 15px;
+    border: 2px inset #e1f1ff;
 }
 
 nav ul li a:hover{
     background-color:#ceb3f2;
     color:ghostwhite;
+    font-weight: 600;
 }
 
 footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 15px;
+    height: 30px;
     background-color: lavender;
 }
 
 div.keepOpen {
     clear: both;
+}
+
+
+
+
+@media screen and (max-width: 490px) {
+    div#container{
+        width: 100%;
+    }
+    nav ul li a{
+        float: none;
+        text-align: center;
+    }
 }
