@@ -12,14 +12,14 @@ html,body,div,p,ul,ol,li,h1,h2,h3,h4,h5,h6
 }
 
 body{
-    background-color: azure;
+    background-color: #f0ffff;
 }
 
 
 header{
     width: 100%;
     padding: 1px;
-    background-color: honeydew;
+    background-color: #f0fff0;
 }
 
 header h1{
@@ -30,23 +30,24 @@ header h1{
 p#subtitle{
     color: darkseagreen;
     font-family: "Caveat" , cursive;
-    background-color: honeydew;
+    background-color: #f0fff0;
     width: 100%;
 }
 
 div#container{
     width: 100%;
-    background-color: cornsilk;
-    color: chocolate;
+    background-color: #fff8dc;
+    color: #d2691e;
     font-family: 'Special Elite', cursive;
 }
 
 div#content{
     width: 100%;
-    background-color:aliceblue;
+    background-color:#f0f8ff;
     font-family: 'Special Elite', cursive;
 }
 
+/*
 nav{
     color:rebeccapurple;
 }
@@ -71,7 +72,36 @@ nav ul li a:hover{
     color:ghostwhite;
     font-weight: 600;
 }
+*/
 
+.icon-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #e6e6fa;
+    overflow: auto;
+}
+
+.icon-bar a {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    color: #571f8e;
+    font-size: 27px;
+}
+
+.icon-bar a:hover {
+    background-color: #f8f8ff;
+}
+
+.active {
+    background-color: #c6a8fd;
+}
+
+/*
 footer{
     position: absolute;
     bottom: 0;
@@ -97,3 +127,4 @@ div.keepOpen {
         text-align: center;
     }
 }
+*/
