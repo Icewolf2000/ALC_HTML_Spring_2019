@@ -22,13 +22,21 @@ header{
     background-color: #f0fff0;
 }
 
+header img#applogo{
+    display: block;
+    margin: auto;
+    width: 100px;
+}
+
 header h1{
-    color:darkseagreen;
+    color:#8fbc8f;
+    text-align: center;
     font-family: "Caveat", cursive;
     font-size: 3em;
 }
 p#subtitle{
-    color: darkseagreen;
+    color: #8fbc8f;
+    text-align: center;
     font-family: "Caveat" , cursive;
     background-color: #f0fff0;
     width: 100%;
@@ -36,6 +44,7 @@ p#subtitle{
 
 div#container{
     width: 100%;
+    text-align: center;
     background-color: #fff8dc;
     color: #d2691e;
     font-family: 'Special Elite', cursive;
