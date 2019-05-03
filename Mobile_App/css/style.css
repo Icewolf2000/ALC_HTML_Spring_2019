@@ -18,21 +18,21 @@ body{
 
 header{
     width: 100%;
-    padding: 1px;
+    padding: 0px;
     background-color: #f0fff0;
 }
 
 header img#applogo{
     display: block;
     margin: auto;
-    width: 100px;
+    width: 600px;
 }
 
-header h1{
+header h6{
     color:#8fbc8f;
     text-align: center;
     font-family: "Caveat", cursive;
-    font-size: 3em;
+    font-size: 2em;
 }
 p#subtitle{
     color: #8fbc8f;
@@ -54,6 +54,12 @@ div#content{
     width: 100%;
     background-color:#f0f8ff;
     font-family: 'Special Elite', cursive;
+}
+
+img#product{
+    display: block;
+    margin: auto;
+    overflow:auto;
 }
 
 /*
@@ -84,7 +90,7 @@ nav ul li a:hover{
 */
 
 .icon-bar {
-    position: absolute;
+    position: sticky;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -99,7 +105,7 @@ nav ul li a:hover{
     padding: 12px 0;
     transition: all 0.3s ease;
     color: #571f8e;
-    font-size: 27px;
+    font-size: 20px;
 }
 
 .icon-bar a:hover {
