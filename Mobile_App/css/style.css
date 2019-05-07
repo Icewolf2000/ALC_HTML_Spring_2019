@@ -62,6 +62,76 @@ img#product{
     overflow:auto;
 }
 
+div#favoritesContainer{
+    width: 100%;
+    text-align: center;
+    font-family: 'Special Elite', cursive;
+    color: #53c1d0;
+}
+
+
+/*
+Favorites page imgs
+*/
+
+img#casey{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+img#bec{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+img#ss{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+
+/*Products page*/
+
+div#productsContainer{
+    width: 100%;
+    text-align: center;
+    font-family: 'Special Elite', cursive;
+    color: #53c1d0;
+}
+img#prospit{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+img#derse{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+img#mc{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+
+img#vriska{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+
+img#gamzee{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+
+img#pm{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+
 /*
 nav{
     color:rebeccapurple;
@@ -90,8 +160,8 @@ nav ul li a:hover{
 */
 
 .icon-bar {
-    position: sticky;
-    bottom: 0;
+    position: absolute;
+    bottom: auto;
     left: 0;
     width: 100%;
     background-color: #e6e6fa;
