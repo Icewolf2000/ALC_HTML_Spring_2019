@@ -40,6 +40,7 @@ p#subtitle{
     font-family: "Caveat" , cursive;
     background-color: #f0fff0;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 div#container{
@@ -56,7 +57,7 @@ div#content{
     font-family: 'Special Elite', cursive;
 }
 
-img#product{
+img#TJ{
     display: block;
     margin: auto;
     overflow:auto;
@@ -93,11 +94,27 @@ img#ss{
 /*Products page*/
 
 div#productsContainer{
-    width: 100%;
-    text-align: center;
+    width: auto;
+    margin: auto;
     font-family: 'Special Elite', cursive;
     color: #53c1d0;
 }
+
+figure.TJ{
+    width: 20%;
+    float: left;
+}
+
+figure.TJ img{
+    display: block;
+    width: auto;
+    padding: 10px 0px;
+}
+
+figure.TJ caption{
+    text-align: center;
+}
+
 img#prospit{
     display: block;
     margin: auto;
@@ -132,6 +149,36 @@ img#pm{
     overflow: auto;
 }
 
+img#terezi{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+
+img#HIC{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+
+img#Pices{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+
+img#trolls{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+
+img#cascade{
+    display: block;
+    margin: auto;
+    overflow: auto;
+}
+
 /*
 nav{
     color:rebeccapurple;
@@ -160,8 +207,8 @@ nav ul li a:hover{
 */
 
 .icon-bar {
-    position: absolute;
-    bottom: auto;
+    position: fixed;
+    bottom: 0;
     left: 0;
     width: 100%;
     background-color: #e6e6fa;
