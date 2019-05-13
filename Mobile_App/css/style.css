@@ -75,20 +75,38 @@ div#favoritesContainer{
 Favorites page imgs
 */
 
-img#casey{
-    display: block;
-    margin: auto;
-    overflow: auto;
+figure.casey{
+    width: 20%;
+    float: left;
 }
+figure.casey img{
+    display: block;
+    width: auto;
+    padding: 10px 0px;
+}
+figure.casey caption{
+    text-align: center;
+}
+
+
 img#bec{
     display: block;
     margin: auto;
     overflow: auto;
 }
-img#ss{
+
+
+figure.ss{
+    width: 20%;
+    float: left;
+}
+figure.ss img{
     display: block;
-    margin: auto;
-    overflow: auto;
+    width: auto;
+    padding: 10px 0px;
+}
+figure.ss caption{
+    text-align: center;
 }
 
 /*Products page*/
@@ -100,41 +118,102 @@ div#productsContainer{
     color: #53c1d0;
 }
 
+
 figure.TJ{
     width: 20%;
     float: left;
 }
-
 figure.TJ img{
     display: block;
     width: auto;
     padding: 10px 0px;
 }
-
 figure.TJ caption{
     text-align: center;
 }
 
-img#prospit{
-    display: block;
-    margin: auto;
-    overflow: auto;
+
+figure.MC{
+    width: 20%;
+    float: left;
 }
-img#derse{
+figure.MC img{
     display: block;
-    margin: auto;
-    overflow: auto;
+    width: auto;
+    padding: 10px 0px;
 }
-img#mc{
-    display: block;
-    margin: auto;
-    overflow: auto;
+figure.MC caption{
+    text-align: center;
 }
 
-img#vriska{
+
+figure.PM{
+    width: 30%;
+    float: left;
+}
+figure.PM img{
     display: block;
-    margin: auto;
-    overflow: auto;
+    width: auto;
+    padding: 10px 0px;
+}
+figure.PM caption{
+    text-align: center;
+}
+
+
+figure.hic{
+    width: 20%;
+    float: left;
+}
+figure.hic img{
+    display: block;
+    width: auto;
+    padding: 10px 0px;
+}
+figure.hic caption{
+    text-align: center;
+}
+
+
+figure.Meenah{
+    width: 20%;
+    float: left;
+}
+figure.Meenah img{
+    display: block;
+    width: auto;
+    padding: 10px 0px;
+}
+figure.Meenah caption{
+    text-align: center;
+}
+
+
+figure.terezi{
+    width: 20%;
+    float: left;
+}
+figure.terezi img{
+    display: block;
+    width: auto;
+    padding: 10px 0px;
+}
+figure.terezi caption{
+    text-align: center;
+}
+
+
+figure.vriska{
+    width: 20%;
+    float: left;
+}
+figure.vriska img{
+    display: block;
+    width: auto;
+    padding: 10px 0px;
+}
+figure.vriska caption{
+    text-align: center;
 }
 
 img#gamzee{
@@ -143,25 +222,12 @@ img#gamzee{
     overflow: auto;
 }
 
-img#pm{
+img#prospit{
     display: block;
     margin: auto;
     overflow: auto;
 }
-
-img#terezi{
-    display: block;
-    margin: auto;
-    overflow: auto;
-}
-
-img#HIC{
-    display: block;
-    margin: auto;
-    overflow: auto;
-}
-
-img#Pices{
+img#derse{
     display: block;
     margin: auto;
     overflow: auto;
@@ -246,17 +312,23 @@ footer{
 div.keepOpen {
     clear: both;
 }
-
+*/
 
 
 
 @media screen and (max-width: 490px) {
-    div#container{
-        width: 100%;
-    }
-    nav ul li a{
+    figure{
         float: none;
+        margin: 10px auto;
+        min-width: 50%;
+        max-width: 100%;
+        background-color: #f0ffff;
+        border-radius: 5%;
+    }
+    figure figcaption{
         text-align: center;
+        color: #53c1d0;
+        font-family: 'Special Elite', cursive;
+        font-size: 12px;
     }
 }
-*/
