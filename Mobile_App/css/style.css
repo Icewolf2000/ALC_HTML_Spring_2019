@@ -40,7 +40,6 @@ p#subtitle{
     font-family: "Caveat" , cursive;
     background-color: #f0fff0;
     width: 100%;
-    margin-bottom: 10px;
 }
 
 div#container{
@@ -61,6 +60,16 @@ img#TJ{
     display: block;
     margin: auto;
     overflow:auto;
+}
+
+div#container2{
+    width: 100%;
+    text-align: center;
+    background-color: #ffb3f3;
+    color: #c1009c;
+    font-family: 'Special Elite', cursive;
+    
+    
 }
 
 div#favoritesContainer{
@@ -89,10 +98,17 @@ figure.casey caption{
 }
 
 
-img#bec{
+figure.bec{
+    width: 20%;
+    float: left;
+}
+figure.bec{
     display: block;
-    margin: auto;
-    overflow: auto;
+    width: auto;
+    padding: 10px 0px;
+}
+figure.bec{
+    text-align: center;
 }
 
 
@@ -216,33 +232,70 @@ figure.vriska caption{
     text-align: center;
 }
 
-img#gamzee{
+figure.gamzee{
+    width: 20%;
+    float: left;
+}
+figure.gamzee img{
     display: block;
-    margin: auto;
-    overflow: auto;
+    width: auto;
+    padding: 10px 0px;
+}
+figure.gamzee caption{
+    text-align: center;
 }
 
-img#prospit{
-    display: block;
-    margin: auto;
-    overflow: auto;
+figure.trolls{
+    width: 20%;
+    float: left;
 }
-img#derse{
+figure.trolls img{
     display: block;
-    margin: auto;
-    overflow: auto;
+    width: auto;
+    padding: 10px 0px;
 }
-
-img#trolls{
-    display: block;
-    margin: auto;
-    overflow: auto;
+figure.trolls caption{
+    text-align: center;
 }
 
-img#cascade{
+figure.prospit{
+    width: 20%;
+    float: left;
+}
+figure.prospit img{
     display: block;
-    margin: auto;
-    overflow: auto;
+    width: auto;
+    padding: 10px 0px;
+}
+figure.prospit caption{
+    text-align: center;
+}
+
+figure.derse{
+    width: 20%;
+    float: left;
+}
+figure.derse img{
+    display: block;
+    width: auto;
+    padding: 10px 0px;
+}
+figure.derse caption{
+    text-align: center;
+}
+
+
+figure.cascade{
+    width: 20%;
+    float: left;
+}
+figure.cascade img{
+    display: block;
+    width: auto;
+    padding: 10px 0px;
+}
+figure.cascade caption{
+    text-align: center;
 }
 
 /*
